@@ -1,93 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profit Bliss Dashboard</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profit Bliss - Crypto Investment</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/crypto-particles.js') }}"></script>
 </head>
 <body>
-  <!-- Floating Particles -->
-  <div id="particles-js"></div>
+<canvas id="particles"></canvas>
 
-  <div class="dashboard-container">
-    <header class="dashboard-header">
-      <h1>Profit Bliss</h1>
-      <nav>
-        <a href="{{ url_for('deposit') }}">Deposit</a>
-        <a href="{{ url_for('withdraw') }}">Withdraw</a>
-        <a href="{{ url_for('logout') }}">Logout</a>
-      </nav>
-    </header>
+<header>
+  <h1>Profit Bliss</h1>
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('signup') }}">Sign Up</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+  </nav>
+</header>
 
-    <!-- Account Balance -->
-    <section class="balance-section">
-      <div class="balance-card">
-        <h2>Account Balance</h2>
-        <p>${{ '%.2f'|format(balance) }}</p>
-      </div>
-    </section>
-
-    <!-- Investment Plans -->
-    <section class="plans-section">
-      <h2>Investment Plans</h2>
-      <div class="plans-grid">
-        {% for plan in plans %}
-        <div class="plan-card">
-          <h3>{{ plan.name }}</h3>
-          <p><strong>Stake:</strong> ${{ plan.stake }}</p>
-          <p><strong>Daily ROI:</strong> {{ plan.daily_roi }}%</p>
-          <p><strong>Duration:</strong> {{ plan.duration }} days</p>
-          <a href="{{ url_for('subscribe', plan_id=plan.id) }}" class="btn">Subscribe</a>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-
-    <!-- Active Plans -->
-    <section class="active-plans-section">
-      <h2>Your Active Plans</h2>
-      {% if active_plans %}
-        <div class="active-grid">
-          {% for ap in active_plans %}
-          <div class="active-card">
-            <h3>{{ ap.plan.name }}</h3>
-            <p>Started: {{ ap.start_date.strftime('%Y-%m-%d') }}</p>
-            <p>Ends: {{ ap.end_date.strftime('%Y-%m-%d') }}</p>
-            <p>ROI Credited Daily ✅</p>
-          </div>
-          {% endfor %}
-        </div>
-      {% else %}
-        <p>No active plans. Subscribe to a plan above.</p>
-      {% endif %}
-    </section>
-
+<section class="hero">
+  <h2>Your Gateway to Smarter Crypto Investments</h2>
+  <p>Secure, Transparent, and High-ROI investment plans with daily returns.</p>
+  <div class="cta">
+    <a href="{{ url_for('signup') }}" class="btn">Get Started</a>
+    <a href="{{ url_for('login') }}" class="btn-outline">Login</a>
   </div>
+</section>
 
-  <!-- Flash Messages (Modals) -->
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      <div class="modal">
-        {% for category, message in messages %}
-          <div class="modal-content {{ category }}">
-            <span class="close">&times;</span>
-            <p>{{ message }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}
+<section class="features">
+  <div class="card">🔒 <h3>Secure</h3><p>Enterprise-grade protection for your funds.</p></div>
+  <div class="card">💹 <h3>High ROI</h3><p>Up to 75% ROI on Premium Plans.</p></div>
+  <div class="card">💬 <h3>24/7 Support</h3><p>Always available to assist you.</p></div>
+</section>
 
-  <script>
-    // Modal script
-    document.querySelectorAll(".modal .close").forEach(btn => {
-      btn.addEventListener("click", () => {
-        btn.parentElement.style.display = "none";
-      });
-    });
-  </script>
+<footer>&copy; 2025 Profit Bliss. All Rights Reserved.</footer>
+
+<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
 </body>
-  </html>
+</html>
