@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Profit Bliss</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<div class="form-container">
+  <h2>Create Account</h2>
+
+  <form method="POST">
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <label>Country</label>
+    <select name="country" required>
+      <option value="">Select Country</option>
+      <option value="United States">United States</option>
+      <option value="Nigeria">Nigeria</option>
+      <option value="Canada">Canada</option>
+      <option value="United Kingdom">United Kingdom</option>
+      <!-- (You can load full country list later) -->
+    </select>
+
+    <label>Referral Code (Optional)</label>
+    <input type="text" name="referral" placeholder="tmdf28dns">
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+</div>
+
+<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</body>
+  </html>
