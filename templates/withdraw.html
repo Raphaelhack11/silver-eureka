@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Withdraw - Profit Bliss</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<div class="form-container">
+  <h2>Withdraw Funds</h2>
+  <form method="POST">
+    <label>Amount (USD)</label>
+    <input type="number" name="amount" min="70" required>
+
+    <label>Wallet Address</label>
+    <input type="text" name="wallet" required>
+
+    <button type="submit">Submit Withdrawal</button>
+  </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</body>
+</html>
