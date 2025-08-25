@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - Profit Bliss</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<header>
+  <h1>Admin Dashboard</h1>
+  <nav>
+    <a href="{{ url_for('dashboard') }}">User Dashboard</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </nav>
+</header>
+
+<section class="admin-section">
+  <h2>Pending Deposits</h2>
+  {% if deposits %}
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Amount</th>
+        <th>Coin</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      {% for dep in deposits %}
+      <tr>
+        <td>{{ dep.user_id }}</td>
+        <td>${{ dep.amount }}</td>
+        <td>{{ dep.coin }}</td>
+        <td>{{ dep.status }}</td>
+        <td>
+          <a href="/admin/approve/deposit/{{ dep.id }}" class="btn">Approve</a>
+          <a href="/admin/reject/deposit/{{ dep.id }}" class="btn-outline">Reject</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No pending deposits.</p>
+  {% endif %}
+</section>
+
+<section class="admin-section">
+  <h2>Pending Withdrawals</h2>
+  {% if withdrawals %}
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Amount</th>
+        <th>Wallet</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      {% for wd in withdrawals %}
+      <tr>
+        <td>{{ wd.user_id }}</td>
+        <td>${{ wd.amount }}</td>
+        <td>{{ wd.wallet_address }}</td>
+        <td>{{ wd.status }}</td>
+        <td>
+          <a href="/admin/approve/withdraw/{{ wd.id }}" class="btn">Approve</a>
+          <a href="/admin/reject/withdraw/{{ wd.id }}" class="btn-outline">Reject</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No pending withdrawals.</p>
+  {% endif %}
+</section>
+
+<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</body>
+            </html>
