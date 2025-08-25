@@ -1,41 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Profit Bliss - Crypto Investment</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profit Bliss - Smart Crypto Investments</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-<canvas id="particles"></canvas>
 
-<header>
-  <h1>Profit Bliss</h1>
-  <nav>
-    <a href="{{ url_for('index') }}">Home</a>
-    <a href="{{ url_for('signup') }}">Sign Up</a>
-    <a href="{{ url_for('login') }}">Login</a>
-    <a href="{{ url_for('contact') }}">Contact</a>
-  </nav>
-</header>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
 
-<section class="hero">
-  <h2>Your Gateway to Smarter Crypto Investments</h2>
-  <p>Secure, Transparent, and High-ROI investment plans with daily returns.</p>
-  <div class="cta">
-    <a href="{{ url_for('signup') }}" class="btn">Get Started</a>
-    <a href="{{ url_for('login') }}" class="btn-outline">Login</a>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="logo">Profit Bliss</h1>
+      <p class="tagline">Smart. Secure. Profitable.</p>
+      <div class="cta-buttons">
+        <a href="{{ url_for('signup') }}" class="btn-primary">Get Started</a>
+        <a href="{{ url_for('login') }}" class="btn-secondary">Login</a>
+      </div>
+    </div>
+  </header>
 
-<section class="features">
-  <div class="card">🔒 <h3>Secure</h3><p>Enterprise-grade protection for your funds.</p></div>
-  <div class="card">💹 <h3>High ROI</h3><p>Up to 75% ROI on Premium Plans.</p></div>
-  <div class="card">💬 <h3>24/7 Support</h3><p>Always available to assist you.</p></div>
-</section>
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>
+      Profit Bliss is a modern cryptocurrency investment platform
+      offering transparent plans, secure payments in Bitcoin, Ethereum,
+      and USDT (ERC-20), with daily ROI returns and a sleek user dashboard.
+    </p>
+    <p><strong>Our Location:</strong> New York, USA</p>
+  </section>
 
-<footer>&copy; 2025 Profit Bliss. All Rights Reserved.</footer>
+  <!-- Plans Section -->
+  <section class="plans">
+    <h2>Investment Plans</h2>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <h3>Basic</h3>
+        <p>Stake: $50</p>
+        <p>ROI: 20% Daily</p>
+        <p>Duration: 1 Month</p>
+      </div>
+      <div class="plan-card">
+        <h3>Gold</h3>
+        <p>Stake: $100</p>
+        <p>ROI: 35% Daily</p>
+        <p>Duration: 1 Month</p>
+      </div>
+      <div class="plan-card">
+        <h3>Master</h3>
+        <p>Stake: $200</p>
+        <p>ROI: 50% Daily</p>
+        <p>Duration: 1 Month</p>
+      </div>
+      <div class="plan-card">
+        <h3>Premium</h3>
+        <p>Stake: $300</p>
+        <p>ROI: 75% Daily</p>
+        <p>Duration: 1 Month</p>
+      </div>
+    </div>
+  </section>
 
-<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form action="{{ url_for('contact') }}" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Profit Bliss. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JS for Particles -->
+  <script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/crypto-particles.js') }}"></script>
+
 </body>
-</html>
+    </html>
