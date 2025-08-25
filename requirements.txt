@@ -1,0 +1,7 @@
+flask
+flask_sqlalchemy
+flask_mail
+flask_bcrypt
+flask_login
+gunicorn
+python-dotenv
