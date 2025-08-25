@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Profit Bliss</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<header>
+  <h1>Profit Bliss</h1>
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('signup') }}">Sign Up</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+  </nav>
+</header>
+
+<section class="about">
+  <h2>About Us</h2>
+  <p>
+    Profit Bliss is a U.S.-based cryptocurrency investment platform dedicated to 
+    providing secure, transparent, and profitable investment opportunities. 
+    Our mission is to empower investors worldwide with trusted financial growth 
+    through blockchain technology.
+  </p>
+
+  <div class="info">
+    <p><b>Location:</b> 1234 Wall Street, New York, USA</p>
+    <p><b>Email:</b> support@profitbliss.com</p>
+    <p><b>Phone:</b> +1 (555) 234-6789</p>
+  </div>
+</section>
+
+<footer>&copy; 2025 Profit Bliss. All Rights Reserved.</footer>
+
+<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</body>
+</html>
