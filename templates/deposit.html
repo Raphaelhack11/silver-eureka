@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deposit - Profit Bliss</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<div class="form-container">
+  <h2>Deposit Funds</h2>
+  <form method="POST">
+    <label>Amount (USD)</label>
+    <input type="number" name="amount" min="50" required>
+
+    <label>Select Currency</label>
+    <select name="coin">
+      <option value="btc">Bitcoin</option>
+      <option value="usdt">USDT (ERC-20)</option>
+      <option value="eth">Ethereum</option>
+    </select>
+
+    <p><b>Bitcoin Address:</b> bc1q4c6f7xzsekkpvd2guwkaww4m7se9yjlrxnrjc7</p>
+    <p><b>USDT (ERC-20):</b> 0x08cFE6DDC3b58B0655dD1c9214BcfdDBD3855CCA</p>
+    <p><b>Ethereum:</b> 0x08cFE6DDC3b58B0655dD1c9214BcfdDBD3855CCA</p>
+
+    <button type="submit">Submit Deposit</button>
+  </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</body>
+      </html>
